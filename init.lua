@@ -8,3 +8,4 @@ vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
 
 -- DEPENDENCIES
 require("options")
+require("lazy_setup")
