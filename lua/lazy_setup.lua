@@ -12,6 +12,4 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- start
-require("lazy").setup({
-
-})
+require("lazy").setup({ "folke/tokyonight.nvim", })
