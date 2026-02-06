@@ -20,7 +20,23 @@ vim.opt.rtp:prepend(lazypath)
 
 -- start
 require("lazy").setup({
+	-- COLORSCHEMES
 	"folke/tokyonight.nvim",
+	-- TREESITTER
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+			-- A list of parser languages, or "all"
+			ensure_installed = { "lua", "vim", "vimdoc", "c" },
+			-- Enable highlighting
+			highlight = { enable = true },
+			-- Enable indentation
+			indent = { enable = true },
+		})
+		end
+	}
 })
 
 
