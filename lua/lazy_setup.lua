@@ -27,5 +27,6 @@ require("lazy").setup({
 		{ import = "plugins.nvim-tree" },
 		{ import = "plugins.nvim-autopair" },
 		{ import = "plugins.nvim-lualine" },
+		{ import = "plugins.comment" },
 	},
 })
