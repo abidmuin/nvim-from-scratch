@@ -24,5 +24,6 @@ require("lazy").setup({
 		{ import = "plugins.treesitter" },
 		{ import = "plugins.telescope" },
 		{ import = "plugins.git" },
+		{ import = "plugins.nvim-tree" },
 	},
 })
