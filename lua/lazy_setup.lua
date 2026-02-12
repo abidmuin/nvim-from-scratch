@@ -26,6 +26,7 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
+		branch = "master",
 		config = function()
 			require("nvim-treesitter.configs").setup({
 			-- A list of parser languages, or "all"
