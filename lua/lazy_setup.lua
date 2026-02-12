@@ -15,37 +15,22 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- COLORSCHEMES
     -- TOKYO NIGHT
-    -- 	{
-    -- 		"folke/tokyonight.nvim",
-    -- 		lazy = false,
-    --   priority = 1000,
-    --   config = function()
-    --     vim.cmd.colorscheme("tokyonight")
-    --   end,
+    -- {
+    -- 	"folke/tokyonight.nvim",
+    -- 	lazy = false,
+    -- 	priority = 1000,
+    -- 	config = function()
+    -- 		vim.cmd.colorscheme("tokyonight-night")
+    -- 	end,
     -- },
     -- GRUVBOX NVIM
-    -- {
-    --   "ellisonleao/gruvbox.nvim",
-    --   priority = 1000,
-    --   config = function()
-    --     require("gruvbox").setup({
-    --       contrast = "hard", -- can be "hard", "soft" or empty
-    --       transparent_mode = false,
-    --     })
-    --     vim.cmd.colorscheme("gruvbox")
-    --   end,
-    -- },
-    -- OG GRUVBOX
-    { "morhetz/gruvbox",
-      priority = 1000, -- Ensure it loads first
-      init = function()
-          -- OPTIONAL: Settings (must be done BEFORE loading the theme)
-          vim.g.gruvbox_contrast_dark = "hard" -- options: "soft", "medium", "hard"
-          vim.g.gruvbox_italic = 1             -- enable italics
-      end, config = function()
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = function()
+        require("gruvbox").setup({ terminal_colors = true, -- add neovim terminal colors
+                                   undercurl = true, underline = true, bold = true, italic = { strings = true, emphasis = true, comments = true, operators = false, folds = true, }, strikethrough = true, invert_selection = false, invert_signs = false, invert_tabline = false, inverse = true, -- invert background for search, diffs, statuslines and errors
+                                   contrast = "hard", -- can be "hard", "soft" or empty string
+                                   palette_overrides = {}, overrides = {}, dim_inactive = false, transparent_mode = false, })
         vim.cmd.colorscheme("gruvbox")
-    end, },
-    -- TREESITTER
+    end, }, -- TREESITTER
     { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate", branch = "master", config = function()
         require("nvim-treesitter.configs").setup({
             -- A list of parser languages, or "all"
