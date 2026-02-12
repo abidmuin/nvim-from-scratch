@@ -1,11 +1,9 @@
--- KEYBINDINGS
--- leader key, `:help mapleader`
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
--- syntax: mode, keys, command
-vim.keymap.set('n', '<leader>w', '<cmd>write<cr>')
+-- init.lua
 
 -- DEPENDENCIES
-require("options")
+-- GLOBAL SETTINGS & KEYMAPS
+require("core.options")
+require("core.keymaps")
+
+-- PLUGINS
 require("lazy_setup")
