@@ -8,6 +8,7 @@ return {
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
+		local lspconfig = require("lspconfig")
 		require("mason").setup()
 
 		local servers = {
@@ -22,7 +23,8 @@ return {
 
 		require("mason-lspconfig").setup({
 			ensure_installed = servers,
-			automatic_installation = true,
+			automatic_enable = false,
+			-- automatic_installation = false,
 		})
 
 		local capabilities = vim.lsp.protocol.make_client_capabilities() or {}
@@ -34,8 +36,6 @@ return {
 				capabilities = vim.tbl_deep_extend("force", capabilities, cmp_caps)
 			end
 		end
-
-		local lspconfig = require("lspconfig")
 
 		for _, server in ipairs(servers) do
 			lspconfig[server].setup({
