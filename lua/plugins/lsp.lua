@@ -9,9 +9,18 @@ return {
 	},
 	config = function()
 		require("mason").setup()
-		lspconfig.lua_ls.setup()
+		-- lspconfig.lua_ls.setup()
+		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local capabilities = vim.lsp.protocol.make_client_capabilities() or {}
+		local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		if status_ok then
+			local cmp_caps = cmp_nvim_lsp.default_capabilities()
+			if cmp_caps then
+				capabilities = vim.tbl_deep_extend("force", capabilities, cmp_caps)
+			end
+		end
+
 		local lspconfig = require("lspconfig")
 		local servers = {
 			"clangd",
