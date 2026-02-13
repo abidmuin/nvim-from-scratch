@@ -28,6 +28,8 @@ require("lazy").setup({
 		{ import = "plugins.nvim-autopair" },
 		{ import = "plugins.nvim-lualine" },
 		{ import = "plugins.comment" },
-		{ import = "plugins.indent-guide" },
+		{ import = "plugins.indent-blankline" },
+		{ import = "plugins.which-key" },
+		{ import = "plugins.render-markdown" },
 	},
 })
