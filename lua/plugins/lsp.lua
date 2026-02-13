@@ -4,13 +4,27 @@ return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
 		"williamboman/mason.nvim",
-		-- "williamboman/mason-lspconfig.nvim",
+		"williamboman/mason-lspconfig.nvim",
 		"hrsh7th/cmp-nvim-lsp",
 	},
 	config = function()
 		require("mason").setup()
-		-- lspconfig.lua_ls.setup()
-		-- local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+		local servers = {
+			"clangd",
+			"gopls",
+			"pyright",
+			"intelephense",
+			"omnisharp",
+			"jdtls",
+			"texlab",
+		}
+
+		require("mason-lspconfig").setup({
+			ensure_installed = servers,
+			automatic_installation = true,
+		})
+
 		local capabilities = vim.lsp.protocol.make_client_capabilities() or {}
 		local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
@@ -22,14 +36,6 @@ return {
 		end
 
 		local lspconfig = require("lspconfig")
-		local servers = {
-			"clangd",
-			"gopls",
-			"pyright",
-			"intelephense",
-			"omnisharp",
-			"jdtls",
-		}
 
 		for _, server in ipairs(servers) do
 			lspconfig[server].setup({

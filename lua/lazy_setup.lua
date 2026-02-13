@@ -31,5 +31,6 @@ require("lazy").setup({
 		{ import = "plugins.indent-blankline" },
 		{ import = "plugins.which-key" },
 		{ import = "plugins.render-markdown" },
+		{ import = "plugins.vimtex" },
 	},
 })
