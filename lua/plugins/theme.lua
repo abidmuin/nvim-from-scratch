@@ -5,9 +5,24 @@
 -- 	lazy = false,
 -- 	priority = 1000,
 -- 	config = function()
--- 		vim.cmd.colorscheme("tokyonight-night")
+-- 		require("tokyonight").setup({
+-- 			style = "storm",
+-- 			transparent = true,
+-- 			dim_inactive = true,
+-- 			styles = {
+-- 				comments = { italic = true },
+-- 				keywords = { italic = true },
+-- 				functions = { italic = true },
+-- 				variables = {},
+-- 				sidebars = "dark",
+-- 				floats = "dark",
+-- 			},
+-- 			plugins = {
+-- 				all = true,
+-- 			},
+-- 		})
+-- 		vim.cmd.colorscheme("tokyonight")
 -- 	end,
--- }
 
 -- GRUVBOX NVIM
 
@@ -16,7 +31,8 @@ return {
 	priority = 1000,
 	config = function()
 		require("gruvbox").setup({
-			terminal_colors = true, -- add neovim terminal colors
+			-- background = "light",
+			terminal_colors = true,
 			undercurl = true,
 			underline = true,
 			bold = true,
@@ -31,13 +47,15 @@ return {
 			invert_selection = false,
 			invert_signs = false,
 			invert_tabline = false,
-			inverse = true, -- invert background for search, diffs, statuslines and errors
-			contrast = "hard", -- can be "hard", "soft" or empty string
+			inverse = true,
+			contrast = "",
 			palette_overrides = {},
 			overrides = {},
 			dim_inactive = false,
-			transparent_mode = false,
+			transparent_mode = true,
 		})
+
+		-- vim.o.background = "light"
 		vim.cmd.colorscheme("gruvbox")
 	end,
 }
